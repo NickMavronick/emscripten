@@ -1024,10 +1024,11 @@ COMPILER_OPTS += [# '-fno-threadsafe-statics', # disabled due to issue 1289
                   '-D_LIBCPP_ABI_VERSION=2']
 
 if get_llvm_target() == WASM_TARGET:
-  # wasm target does not automatically define emscripten stuff, so do it here.
+  # wasm target does not automatically define everything by itself.
   COMPILER_OPTS += ['-Dunix',
                     '-D__unix',
-                    '-D__unix__']
+                    '-D__unix__',
+                    '-DEMSCRIPTEN']
 
 # Changes to default clang behavior
 
